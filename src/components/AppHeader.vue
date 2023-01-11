@@ -54,6 +54,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
+
+header {
+    background-color: $white;
+}
+
 img {
     width: 90px;
     object-fit: contain;

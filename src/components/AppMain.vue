@@ -62,9 +62,9 @@ export default {
 @use '../styles/partials/variables' as *;
 
 main {
-    background-image: url('https://wallpapercave.com/wp/wp2311074.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image: url('https://wallpapercave.com/wp/wp2311074.png');
+    // background-repeat: no-repeat;
+    // background-size: cover;
 
 
     section#cards {
