@@ -22,7 +22,7 @@ export default {
             })
                 .then((response) => {
                     console.log(response.data.data);
-                    this.store = response.data.data
+                    this.store.yuGiOhCards = response.data.data
                 })
                 .catch((error) => {
                     console.log(error);
