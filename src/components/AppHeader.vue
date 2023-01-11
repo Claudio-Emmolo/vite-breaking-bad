@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             store,
-            apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=12&offset=0',
+            apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0',
         }
     },
 
@@ -40,11 +40,22 @@ export default {
 <template>
     <header>
         <div class="container-fluid">
-            <h1 class="py-3">Yu-Gi-Oh</h1>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 d-flex">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Yu-Gi-Oh%21_%28Logo%29.jpg"
+                            alt="Yu-Gi-Oh Main Logo">
+                        <h1 class="py-3">Yu-Gi-Oh Api</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 </template>
 
 <style lang="scss" scoped>
-
+img {
+    width: 150px;
+    object-fit: contain;
+}
 </style>
