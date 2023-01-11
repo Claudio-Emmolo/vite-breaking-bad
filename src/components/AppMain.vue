@@ -19,20 +19,6 @@ export default {
         }
     },
 
-    methods: {
-
-        loadWait() {
-
-            setTimeout(() => {
-                this.loadCards = true;
-
-            }, 3000);
-        }
-    },
-
-    created() {
-        this.loadWait()
-    }
 }
 
 </script>
@@ -43,12 +29,11 @@ export default {
             <!-- Card Found -->
 
             <div class="card-found py-3">
-                <span v-if="!loadCards" class="fw-bold ps-4">Found ... cards</span>
-                <span v-else class="fw-bold ps-4">Found {{ store.yuGiOhCards.length }} cards</span>
+                <span class="fw-bold ps-4">Found {{ store.yuGiOhCards.length }} cards</span>
             </div>
 
             <!-- Generated Cards -->
-            <AppLoader v-if="(!loadCards) && (store.yuGiOhCards.length > 0)" class="m-auto" />
+            <AppLoader v-if="store.yuGiOhCards.length === 0" class="m-auto" />
 
             <div v-else class="cards-container d-flex flex-wrap ">
                 <!-- Import Cards -->
