@@ -11,7 +11,16 @@ export default {
 <template>
 
     <article class="single-card">
-        <img :src="cardProperty.card_images[0].image_url" :alt="cardProperty.name">
+        <div class="img-card position-relative">
+            <div class="hover-card w-100 h-100 top-0 position-absolute">
+                <div class="text-scroll m-auto">
+                    <p class="m-auto">
+                        {{ cardProperty.desc }}
+                    </p>
+                </div>
+            </div>
+            <img :src="cardProperty.card_images[0].image_url" :alt="cardProperty.name">
+        </div>
         <div class="info-card text-center">
             <h3 class="text-light fs-4 mb-3">{{ cardProperty.name }}</h3>
             <span>{{ cardProperty.archetype }}</span>
@@ -28,8 +37,42 @@ article.single-card {
     background-color: $background;
     margin: 0rem .5rem 1rem;
 
-    img {
-        width: 100%;
+    div.img-card {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        div.hover-card {
+            display: none;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/2/2b/Yugioh_Card_Back.jpg?20201122212343');
+            background-size: cover;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+
+            div.text-scroll {
+                width: 80%;
+                height: 75%;
+                overflow-y: auto;
+
+                p {
+                    width: 90%;
+                    height: 50%;
+                    color: $white;
+                    font-size: .9rem;
+                }
+            }
+        }
+
+        &:hover div.hover-card {
+            display: flex;
+        }
     }
+
 }
 </style>
