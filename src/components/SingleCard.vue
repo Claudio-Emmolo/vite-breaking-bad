@@ -21,7 +21,7 @@ export default {
             </div>
             <img :src="cardProperty.card_images[0].image_url" :alt="cardProperty.name">
         </div>
-        <div class="info-card text-center">
+        <div class="info-card text-center py-2">
             <h3 class="text-light fs-4 mb-3">{{ cardProperty.name }}</h3>
             <span>{{ cardProperty.archetype }}</span>
         </div>
@@ -34,8 +34,9 @@ export default {
 
 article.single-card {
     width: calc(100% / 5 - 1rem);
-    background-color: $background;
+    background-image: url('https://www.cardmaker.net/uploads/cardmaker_resources/1/backgrounds/fusion.png');
     margin: 0rem .5rem 1rem;
+    border-radius: 2rem;
 
     div.img-card {
         position: relative;

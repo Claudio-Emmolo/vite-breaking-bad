@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js';
-import SingleCard from './SingleCard.vue'
+import SingleCard from './SingleCard.vue';
+import AppLoader from './AppLoading.vue'
 
 
 export default {
@@ -8,12 +9,29 @@ export default {
 
     components: {
         SingleCard,
+        AppLoader
     },
 
     data() {
         return {
-            store
+            store,
+            loadCards: false
         }
+    },
+
+    methods: {
+
+        loadWait() {
+
+            setTimeout(() => {
+                this.loadCards = true;
+
+            }, 3000);
+        }
+    },
+
+    created() {
+        this.loadWait()
     }
 }
 
@@ -25,11 +43,14 @@ export default {
             <!-- Card Found -->
 
             <div class="card-found py-3">
-                <span class="fw-bold ps-4">Found {{ store.yuGiOhCards.length }} cards</span>
+                <span v-if="!loadCards" class="fw-bold ps-4">Found ... cards</span>
+                <span v-else class="fw-bold ps-4">Found {{ store.yuGiOhCards.length }} cards</span>
             </div>
 
             <!-- Generated Cards -->
-            <div class="cards-container d-flex flex-wrap ">
+            <AppLoader v-if="(!loadCards) && (store.yuGiOhCards.length > 0)" class="m-auto" />
+
+            <div v-else class="cards-container d-flex flex-wrap ">
                 <!-- Import Cards -->
                 <SingleCard v-for="cardItem in store.yuGiOhCards" :cardProperty="cardItem" />
             </div>
@@ -41,7 +62,9 @@ export default {
 @use '../styles/partials/variables' as *;
 
 main {
-    background-color: $background;
+    background-image: url('https://wallpapercave.com/wp/wp2311074.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 
 
     section#cards {
