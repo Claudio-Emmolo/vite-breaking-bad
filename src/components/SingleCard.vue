@@ -26,7 +26,7 @@ export default {
 article.single-card {
     width: calc(100% / 5 - 1rem);
     background-color: $background;
-    margin: 1rem .5rem;
+    margin: 0rem .5rem 1rem;
 
     img {
         width: 100%;

@@ -21,9 +21,18 @@ export default {
 
 <template>
     <main class="py-5">
-        <section id="cards" class="container d-flex flex-wrap my-5 p-4">
-            <!-- Import Cards -->
-            <SingleCard v-for="cardItem in store.yuGiOhCards" :cardProperty="cardItem" />
+        <section id="cards" class="container d-flex my-5 p-4 flex-column">
+            <!-- Card Found -->
+
+            <div class="card-found py-3">
+                <span class="fw-bold ps-4">Found {{ store.yuGiOhCards.length }} cards</span>
+            </div>
+
+            <!-- Generated Cards -->
+            <div class="cards-container d-flex flex-wrap ">
+                <!-- Import Cards -->
+                <SingleCard v-for="cardItem in store.yuGiOhCards" :cardProperty="cardItem" />
+            </div>
         </section>
     </main>
 </template>
@@ -34,8 +43,16 @@ export default {
 main {
     background-color: $background;
 
+
     section#cards {
         background-color: $white;
+
+        div.card-found {
+            background-color: black;
+            color: white;
+            margin: 1rem .5rem 0;
+        }
+
     }
 }
 </style>
