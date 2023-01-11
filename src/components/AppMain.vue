@@ -17,7 +17,9 @@ export default {
     <main>
         <section id="cards">
             <article class="single-card" v-for="cardItem in store.yuGiOhCards">
+                <img :src="cardItem.card_images[0].image_url" :alt="cardItem.name">
                 <h3>{{ cardItem.name }}</h3>
+                <span>{{ cardItem.archetype }}</span>
             </article>
         </section>
     </main>
