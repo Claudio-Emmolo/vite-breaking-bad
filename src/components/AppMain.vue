@@ -12,9 +12,16 @@ export default {
     data() {
         return {
             typeOfArchetypes: ['Alien', 'Laval', 'Vylon', 'Inzektor', 'Umi', 'Gusto'],
-            selectModel: 'alien'
+            selectModel: 'Alien'
+        }
+    },
+
+    computed: {
+        selectModelLowerCase() {
+            return this.selectModel.toLowerCase()
         }
     }
+
 
 
 }
@@ -24,9 +31,9 @@ export default {
 <template>
     <main class="py-5">
         <section id="chose-archetypes-cards" class="container">
-            <select v-model="selectModel" @change="$emit('sendChoseArchetype', selectModel.toLowerCase())"
-                name="archetypes" id="archetypes-select">
-                <option v-for="singleArchetypeTxt in typeOfArchetypes" :value="singleArchetypeTxt.toLowerCase()">
+            <select v-model="selectModel" @change="$emit('sendChoseArchetype', selectModel)" name="archetypes"
+                id="archetypes-select">
+                <option v-for="singleArchetypeTxt in typeOfArchetypes" :value="singleArchetypeTxt">
                     {{ singleArchetypeTxt }}
                 </option>
             </select>
