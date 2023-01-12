@@ -23,6 +23,7 @@ export default {
 
   methods: {
     getApiElement(archetypeChose) {
+      this.store.yuGiOhCards = []
 
       axios.get(this.apiUrl, {
         params: {
