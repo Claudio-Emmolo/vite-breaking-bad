@@ -9,6 +9,12 @@ export default {
         CardList,
     },
 
+    data() {
+        return {
+            typeOfArchetypes: ['Alien', 'Laval', 'Vylon', 'Inzektor', 'Umi', 'Gusto']
+        }
+    }
+
 
 }
 
@@ -16,6 +22,11 @@ export default {
 
 <template>
     <main class="py-5">
+        <section id="chose-archetypes-cards" class="container">
+            <select name="archetypes" id="archetypes-select">
+                <option v-for="archetype in typeOfArchetypes" :value="archetype">{{ archetype }}</option>
+            </select>
+        </section>
         <section id="cards" class="container d-flex my-5 p-4 flex-column">
 
             <CardList />
