@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=laval&num=10&offset=0',
+      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?',
       archetypeSelected: 'Alien'
     }
   },
