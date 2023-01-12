@@ -38,7 +38,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    }
+    },
   },
 
   created() {
@@ -51,7 +51,7 @@ export default {
   <!-- Import Header -->
   <AppHeader />
   <!-- Import Main -->
-  <AppMain @sendChoseArchetype="this.archetypeSelected" />
+  <AppMain @sendChoseArchetype="getApiElement()" />
 </template>
 
 <style lang="scss">

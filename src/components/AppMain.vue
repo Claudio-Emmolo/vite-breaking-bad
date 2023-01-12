@@ -23,9 +23,10 @@ export default {
 <template>
     <main class="py-5">
         <section id="chose-archetypes-cards" class="container">
-            <select name="archetypes" id="archetypes-select">
-                <option v-for="archetype in typeOfArchetypes" @chose="$emit('sendChoseArchetype', archetype)"
-                    :value="archetype">{{ archetype }}</option>
+            <select @change="$emit('sendChoseArchetype', singleArchetypeTxt)" name="archetypes" id="archetypes-select">
+                <option v-for="singleArchetypeTxt in typeOfArchetypes" :value="archetype">
+                    {{ singleArchetypeTxt }}
+                </option>
             </select>
         </section>
         <section id="cards" class="container d-flex my-5 p-4 flex-column">
