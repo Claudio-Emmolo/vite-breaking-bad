@@ -16,15 +16,19 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0',
+      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=laval&num=10&offset=0',
+      archetypeSelected: 'Alien'
     }
   },
 
   methods: {
-    getApiElement() {
+    getApiElement(archetypeChose) {
 
       axios.get(this.apiUrl, {
         params: {
+          archetype: archetypeChose,
+          num: 15,
+          offset: 0
         }
       })
         .then((response) => {
@@ -38,7 +42,7 @@ export default {
   },
 
   created() {
-    this.getApiElement()
+    this.getApiElement(this.archetypeSelected)
   },
 }
 </script>
@@ -47,7 +51,7 @@ export default {
   <!-- Import Header -->
   <AppHeader />
   <!-- Import Main -->
-  <AppMain />
+  <AppMain @sendChoseArchetype="this.archetypeSelected" />
 </template>
 
 <style lang="scss">
